@@ -1,0 +1,28 @@
+\begin{thebibliography}{1}
+
+\bibitem{Garrahan2009}
+Juan~P Garrahan, Robert~L Jack, Vivien Lecomte, Estelle Pitard, Kristina van
+  Duijvendijk, and Frédéric van Wijland.
+\newblock First-order dynamical phase transition in models of glasses: an
+  approach based on ensembles of histories.
+\newblock {\em Journal of Physics A: Mathematical and Theoretical},
+  42(7):075007, 2009.
+
+\bibitem{Kamenev2011}
+Alex Kamenev.
+\newblock {\em Field Theory of Non-Equilibrium Systems}.
+\newblock Cambridge University Press, 2011.
+
+\bibitem{Orus2014}
+Rom{\'{a}}n Or{\'{u}}s.
+\newblock A practical introduction to tensor networks: Matrix product states
+  and projected entangled pair states.
+\newblock {\em Annals of Physics}, 349:117--158, oct 2014.
+
+\bibitem{Schollwock2011}
+Ulrich Schollw\"{o}ck.
+\newblock The density-matrix renormalization group in the age of matrix product
+  states.
+\newblock {\em Annals of Physics}, 326(1):96--192, jan 2011.
+
+\end{thebibliography}
