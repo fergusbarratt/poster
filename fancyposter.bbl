@@ -1,24 +1,15 @@
 \begin{thebibliography}{1}
 
-\bibitem{Garrahan2007}
-J.~P. Garrahan, R.~L. Jack, V.~Lecomte, E.~Pitard, K.~van Duijvendijk, and
-  F.~van Wijland.
-\newblock Dynamical first-order phase transition in kinetically constrained
-  models of glasses.
-\newblock {\em Phys. Rev. Lett.}, 98:195702, May 2007.
+\bibitem{Crowley2016}
+P.~J.~D. Crowley and A.~G. Green.
+\newblock Anisotropic landau-lifshitz-gilbert models of dissipation in qubits.
+\newblock {\em Phys. Rev. A}, 94:062106, Dec 2016.
 
-\bibitem{Garrahan2009}
-Juan~P Garrahan, Robert~L Jack, Vivien Lecomte, Estelle Pitard, Kristina van
-  Duijvendijk, and Frédéric van Wijland.
+\bibitem{Garrahan2007}
+J.~P.~G. et~al.
 \newblock First-order dynamical phase transition in models of glasses: an
   approach based on ensembles of histories.
 \newblock {\em Journal of Physics A: Mathematical and Theoretical},
   42(7):075007, 2009.
-
-\bibitem{Orus2014}
-Rom{\'{a}}n Or{\'{u}}s.
-\newblock A practical introduction to tensor networks: Matrix product states
-  and projected entangled pair states.
-\newblock {\em Annals of Physics}, 349:117--158, oct 2014.
 
 \end{thebibliography}
