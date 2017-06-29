@@ -1,7 +1,7 @@
 \documentclass[a0,portrait]{a0poster}
 %%%Load packages
 \usepackage{multicol} 			%3-column layout
-\usepackage[left=6cm,right=2cm,bottom=-2cm,top=0cm]{geometry}			%Reset margins
+\usepackage[left=2cm,right=3cm,bottom=-1.2cm,top=0cm]{geometry}			%Reset margins
 \usepackage[T1]{fontenc}			%Need for gtamac fonts
 \usepackage{textcomp}
 \usepackage{mathpazo}			%Load palatino font & pazo math
@@ -15,7 +15,7 @@
 \definecolor{boxcol}{rgb}{0.3,0.5,0.5}		%Edge-colour of box and top banner
 \definecolor{author}{rgb}{0.9, 0.9, 0.9}
 \fboxsep=1cm							%Padding between box and text
-\fboxrule=3mm							%Width of box outline
+\fboxrule=1mm							%Width of box outline
 \renewcommand{\rmdefault}{ppl}			%Reset serif to Palatino
 \setlength{\columnsep}{3cm}				%Set spacing between columns
 %Uncomment for lines as column separators:
@@ -27,27 +27,34 @@
 \renewcommand\@maketitle{%
 \null									%Sets position marker
 {
-    \vspace{3cm}
-\includegraphics[width=10cm]{kings-logo}\vspace{-12cm}
-\vspace{2cm}
-\color{headingcol}\rmfamily\huge\bf		%Set title font and colour
-\vskip 2cm
-\hspace{18cm}\begin{minipage}{0.4\textwidth} \centering
-\@title \par
-\end{minipage}}%
+\color{headingcol}\rmfamily\veryHuge\bf		%Set title font and colour
+\vspace{1cm}
+\hspace{0.14\textwidth}
+\begin{minipage}{0.45\textwidth} 
+    \centering
+    \@title 
+    \par
+\end{minipage}
+}%
 \vskip 0.6em%
 {
 \color{author}\sffamily\Large\bf				%Set author font and colour
-\lineskip .5em%
-\hspace{13cm}\begin{minipage}{0.5\textwidth}
+\hspace{0.14\textwidth}
+\begin{minipage}{0.45\textwidth}
     \centering
-
-\@author
-\par
-\vspace{1.1cm}
+    \@author
+    \par
 \end{minipage}}%
 \vskip 1cm
 \par
+\vspace{-7cm}
+\begin{minipage}{\linewidth}
+    % a0 linewidth = 84.1cm
+\hspace{2cm}
+    \includegraphics[width=20cm]{epsrc_high}
+\hspace{50cm}
+    \includegraphics[width=10cm]{kings-logo}
+\end{minipage}
 }
 \makeatother
 
@@ -61,7 +68,7 @@
 \par 
 \flushleft
 \colorbox{boxcol}{% 						%Draws solid colour box around title
-\sffamily\large\bf\color{headingcol}> \color{white} #1%Typesets section name
+\sffamily\Large\bf\color{headingcol}> \color{white} #1%Typesets section name
 \hspace{0.5cm}}
 \par\nobreak 
 \nointerlineskip 						%Fits title snugly above box (no gap)
@@ -81,13 +88,13 @@
 \par 
 \flushleft
 \colorbox{boxcol}{% 						%Draws solid colour box around title
-\sffamily\large\bf\color{headingcol}> \color{white} #1%Typesets section name
+\sffamily\Large\bf\color{headingcol}> \color{white} #1%Typesets section name
 \hspace{0.5cm}}
 \par\nobreak 
 \nointerlineskip 						%Fits title snugly above box (no gap)
 \setlength\parskip{-1pt}					%Even snugger
 \begin{lrbox}\envbox						%Opens box environment
-    \begin{minipage}{2.04\columnwidth}		%Opens minipage environment for section contents
+    \begin{minipage}{2.073\columnwidth}		%Opens minipage environment for section contents
 }
 %%%Closing
 {\par
@@ -151,9 +158,10 @@
 \graphicspath{ {images/} }
 \usepackage{caption}
 \usepackage{array}
+\usepackage{wrapfig}
  
 
-\title{Understanding Dissipative Control of Quantum Dynamics from Biased Trajectory Ensembles}
+\title{Dissipative Control of Quantum Dynamics from Biased Trajectory Ensembles}
 
 \author{Fergus Barratt (fergus.barratt@kcl.ac.uk) \\Supervisors: Andrew Green \& Peter Sollich}
 
@@ -161,7 +169,7 @@
 \pagenumbering{gobble}
 
 \hspace{-4.1cm}								%Align with edge of page, not margin
-\colorbox{boxcol}{							%Coloured banner across top
+\colorbox{boxcol}{		
 \begin{minipage}{1189mm}					%Minipage for title contents
 %\vspace{-13cm}							%Shift up over header image
 \maketitle
@@ -173,17 +181,17 @@
 \Large
 
 %%%Column1
-\begin{Section}{Introduction}
+\begin{Section}{I: Introduction}
 \begin{itemize}
-    \item Technological potential of quantum systems due to exponential state space scaling.
+    \item Technological potential of quantum systems due to state space scaling.
     \item Environmental decoupling challenges effective use of quantum technology.
-    \item Tools from classical statistical mechanics?
+    \item E.g.\ Adiabatic quantum computation 
+    \item Tools from Statistical Mechanics?
 \end{itemize}
+\vspace{0.5cm}
 \end{Section}
 
-\begin{Section}{Trajectory Ensembles}
-            \includegraphics[width=1\linewidth]{dyn_phase_transition}
-\captionof{figure}{Dynamical phase transition in KCM. $\mathcal{K}(s)$ is the first derivative of $\psi_K(s)$ the dynamical free energy\cite{Garrahan2007}}
+\begin{Section}{1: Trajectory Ensembles}
     \begin{itemize}
         \item Ensembles of trajectories - like thermal ensembles. Partition function:~\cite{Garrahan2007}.
             \begin{equation}
@@ -191,37 +199,42 @@
             \end{equation}
 
         \item Markovian, paths biased (like canonical ensemble) by time extensive observable A (E) with strength s ($\beta$). $\mathbb{W} \rightarrow \mathbb{W}_A$ in
-\begin{equation}
-    \pdv{\vec{P}_A}{t} = \mathbb{W}_A(s) \vec{P}_A,
-\end{equation}
-leads to
-\begin{equation}
-    \mathcal{Z}_A(s, t) \sim e^{t \psi_A(s)}
-\end{equation}
-with $\psi_A(s)$ largest eigenvalue of $\mathbb{W}_A(s)$: \emph{dynamical free energy}.
-\item Singularities in dynamical free energy $\rightarrow$ \emph{dynamical phase transitions}: different dynamical behaviour i.e. transition to chaos, jamming in glasses.
-\item Dynamical phase transitions in \emph{kinetically constrained models} (KCMS) of glass formers (fig. \ref{fig:KCM})
-
+            \begin{equation}
+                \pdv{\vec{P}_A}{t} = \mathbb{W}_A(s) \vec{P}_A,
+            \end{equation}
+            leads to
+            \begin{equation}
+                \mathcal{Z}_A(s, t) \sim e^{t \psi_A(s)}
+            \end{equation}
+            with $\psi_A(s)$ largest eigenvalue of $\mathbb{W}_A(s)$: \emph{dynamical free energy}.
+    \item Singularities in dynamical free energy $\rightarrow$ \emph{dynamical phase transitions}: different dynamical behaviour i.e. transition to chaos, jamming in glasses.
+    \item Dynamical phase transitions in \emph{kinetically constrained models} (KCMS) of glass formers (fig.~\ref{fig:KCM})
 \end{itemize}
-\includegraphics[width=\linewidth]{kcm}
-\captionof{figure}{Schematic of site of Kinetically Constrained Model. Site $i$ (blue) transitions from $n_i \rightarrow 1-n_i$ with rate $W(n_i \rightarrow 1-n_i) = C(\{n_j\}) \frac{e^{\beta(n_i-1)}}{1+e^{-\beta}}$, where $C(\{n_j\})$ is a function only of the values of sites $n_j$ (red)} \label{fig:KCM}
+    \includegraphics[width=\linewidth]{kcm}
+    \captionof{figure}{Schematic of site of Kinetically Constrained Model. Site $i$ (blue) transitions from $n_i \rightarrow 1-n_i$ with rate $W(n_i \rightarrow 1-n_i) = C(\{n_j\}) \frac{e^{\beta(n_i-1)}}{1+e^{-\beta}}$, where $C(\{n_j\})$ is a function only of the values of sites $n_j$ (red)} \label{fig:KCM}
 \end{Section}
 
 \columnbreak
 
 %%%Column 2
 
-\begin{Section2}{Aims}
+\begin{Section2}{II: Aims}
     \begin{itemize}
-        \item Classical glasses $\rightarrow$ KCMs $\rightarrow$ \emph{biased trajectory ensembles}.
-        \item Keldysh theory $\rightarrow$ dissipation: analogous to bias in trajectory ensembles?
-        \item Consider adiabatic quantum computation. Spin chains $\rightarrow$ Matrix Product States
-        \item Transition from usable quantum resources (i.e. entanglement) to absence.
+        \item Classical glasses $\rightarrow$ KCMs\\
+        $\rightarrow$ \emph{biased trajectory ensembles}\cite{Garrahan2007}.
+        \item Keldysh theory $\rightarrow$ dissipation: \\
+            analogous to bias in trajectory ensembles?
+        \item Transition from usable quantum resources \\
+            (i.e.\ entanglement) to absence.
     \end{itemize}
+            \vspace{-11cm}\flushright\includegraphics[width=0.5\linewidth]{dyn_phase_transition}\flushleft
+            \vspace{-1cm}
+            % \captionof{figure}{Dynamical phase transition}
 
 \end{Section2}
 
-\begin{Section}{Matrix Product States}
+\vspace{0.544cm}
+\begin{Section}{2: Matrix Product States}
 
 \begin{itemize}
     \item Interesting bit of most Hilbert spaces small, permits efficient numerics.
@@ -233,14 +246,14 @@ with $\psi_A(s)$ largest eigenvalue of $\mathbb{W}_A(s)$: \emph{dynamical free e
     \begin{equation} \ket{\psi} = \sum_{\sigma_1, \ldots, \sigma_L} \Gamma^{\sigma_1}\Lambda_1 \ldots \Lambda_{L-1}\Gamma^{\sigma_L} \ket{\sigma_1, \ldots, \sigma_L }\nonumber
     \end{equation}
 \item Important bit of Hilbert space spanned by MPS with $\Lambda$ truncated to D dims.
-\item D grows with time evolution. Project back to D subspace - classical EOM for variational parameters. 
-    \\
-    \\
+\end{itemize}
 \includegraphics[width=\linewidth]{D}
 \captionof{figure}{Size of subset of Hilbert space $H$ with bond dimension $D$ grows with $D$}
-\vspace{1cm}
-
+\begin{itemize}
+    \item D grows with time evolution. Project back to D subspace - classical EOM
 \end{itemize}
+\includegraphics[width=\linewidth]{tdvp}
+\captionof{figure}{Time-dependent variational principle}
 \end{Section}
 
 \columnbreak
@@ -248,23 +261,26 @@ with $\psi_A(s)$ largest eigenvalue of $\mathbb{W}_A(s)$: \emph{dynamical free e
 %%%Column 3
 
 \flushleft\fcolorbox{white}{fillcol}{\usebox\envbox}
-\vspace{11.5cm}
-\begin{Section}{Non-Equilibrium QFT: Keldysh Theory}
+\vspace{14.32cm}
+\begin{Section}{3: Non-Equilibrium QFT: Keldysh}
+
+        \includegraphics[width=\linewidth]{spins1}
+        \captionof{figure}{Different dynamical behaviour}
+
 \begin{itemize}
-    \item Evolve the state forward in time $(-\infty \rightarrow \infty)$, rewind $\infty \rightarrow -\infty$: fig. \ref{fig:keldysh}
+    \item Evolve the state forward in time $(-\infty \rightarrow \infty)$, rewind $\infty \rightarrow -\infty$: fig.~\ref{fig:keldysh}
     \item Separate fields on forward and backwards contours ($\phi^+, \phi^-$)
     \item Construct the path integral $\rightarrow$ redundancy in the Green's Functions.
     \item Combinations such that $\ev{\phi^{cl}\phi^{cl}}$ = 0
-    \begin{equation}
-        \phi^q = \phi^+ - \phi^- \qquad \phi^{cl} = \phi^+-\phi^-
-    \end{equation}
+        \begin{equation}
+            \phi^q = \phi^+ - \phi^- \qquad \phi^{cl} = \phi^+-\phi^-
+        \end{equation}
     \item Introduce a bath interacting with system, integrate out bath, generate semi-classical path integrals for quantum systems.  
-\item Distribution over paths. Connected to the classical trajectory ensemble?
-        \includegraphics[width=\linewidth]{spins1}
-    \captionof{figure}{Trajectories of effective classical spins of qualitatively different dynamical forms~\cite{Crowley2016}}
-    \vspace{0.3cm}
-    \vspace{0.25cm}
+    \item Distribution over paths. Connected to the classical trajectory ensemble?
 \end{itemize}
+
+\includegraphics[width=\linewidth, height=8cm]{keldysh}
+        \captionof{figure}{Keldysh Contour}\label{fig:keldysh}
 
 \end{Section}
 %\bibliographystyle{plain}
@@ -273,7 +289,7 @@ with $\psi_A(s)$ largest eigenvalue of $\mathbb{W}_A(s)$: \emph{dynamical free e
 \end{multicols}
 %%%Closing
 
-\vspace{-38.5cm}
+\vspace{-12.5cm}
     \flushright
 \begin{Section5}
 \begin{minipage}{1\linewidth}
@@ -282,16 +298,10 @@ with $\psi_A(s)$ largest eigenvalue of $\mathbb{W}_A(s)$: \emph{dynamical free e
     \includegraphics[width=1.16\linewidth]{mps}
  \captionof{figure}{5-site Open Boundary Condition MPS in $\Gamma\Lambda$ notation}
 \end{minipage}
-\begin{minipage}{1\linewidth}
-        \centering
-\includegraphics[width=1\linewidth]{keldysh}\\
-\captionof{figure}{Keldysh Contour}\label{fig:keldysh}
-\end{minipage}
 \end{Section5}
 \vfill
-\begin{Section5}
+\flushleft
     \bibliography{ref}{}
     \bibliographystyle{abbrv}
-\end{Section5}\hspace{-0.2cm}
-\vspace{1cm}
+\vspace{3cm}
 \end{document}
