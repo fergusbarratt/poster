@@ -27,18 +27,19 @@
 \renewcommand\@maketitle{%
 \null									%Sets position marker
 {
-\color{headingcol}\rmfamily\veryHuge\bf		%Set title font and colour
-\vspace{1cm}
-\hspace{0.14\textwidth}
-\begin{minipage}{0.45\textwidth} 
+\color{headingcol}\rmfamily\VeryHuge\bf		%Set title font and colour
+\vspace{2cm}
+\hspace{0.06\textwidth}
+\begin{minipage}{0.6\textwidth} 
     \centering
     \@title 
     \par
 \end{minipage}
 }%
 \vskip 0.6em%
+\vspace{1cm}
 {
-\color{author}\sffamily\Large\bf				%Set author font and colour
+\color{author}\rmfamily\LARGE\bf				%Set author font and colour
 \hspace{0.14\textwidth}
 \begin{minipage}{0.45\textwidth}
     \centering
@@ -48,13 +49,22 @@
 \vskip 1cm
 \par
 \vspace{-7cm}
-\begin{minipage}{\linewidth}
     % a0 linewidth = 84.1cm
 \hspace{2cm}
-    \includegraphics[width=20cm]{epsrc_high}
-\hspace{50cm}
-    \includegraphics[width=10cm]{kings-logo}
-\end{minipage}
+\vtop{%
+    \vskip0pt
+    \hbox{%
+        \includegraphics[trim=-0.4cm 0 0 0.5cm, width=20cm]{epsrc_high}
+    }%
+}
+\hspace{47.2cm}
+\vtop{%
+    \vskip0pt
+    \hbox{%
+        \includegraphics[trim=0 0 0 2cm, width=12cm]{kings-logo}
+    }%
+}
+\vspace{1cm}
 }
 \makeatother
 
@@ -145,7 +155,7 @@
 \nointerlineskip 						%Fits title snugly above box (no gap)
 \setlength\parskip{-1pt}					%Even snugger
 \begin{lrbox}\envbox						%Opens box environment
-    \begin{minipage}{0.636\columnwidth}		%Opens minipage environment for section contents
+    \begin{minipage}{0.95\columnwidth}		%Opens minipage environment for section contents
 }
 %%%Closing
 {\par
@@ -183,32 +193,32 @@
 %%%Column1
 \begin{Section}{I: Introduction}
 \begin{itemize}
-    \item Technological potential of quantum systems due to state space scaling.
-    \item Environmental decoupling challenges effective use of quantum technology.
-    \item E.g.\ Adiabatic quantum computation 
-    \item Tools from Statistical Mechanics?
+    \item Technological potential of quantum\\ systems due to state space scaling.
+    \item Environmental decoupling a challenge to effective use of quantum technology i.e.\ in adiabatic quantum computation 
+    \item New tools from statistical mechanics?
 \end{itemize}
-\vspace{0.5cm}
+\vspace{0.75cm}
 \end{Section}
 
 \begin{Section}{1: Trajectory Ensembles}
     \begin{itemize}
-        \item Ensembles of trajectories - like thermal ensembles. Partition function:~\cite{Garrahan2007}.
+    \itemsep1cm
+        \item Ensembles of trajectories - like thermal ensembles. Partition function:~\cite{Garrahan2007}
             \begin{equation}
-                \mathcal{Z}_A(s, t) = \sum_A \Omega_{dyn}(A, t)e^{-sA}
+                \mathcal{Z}_A(s, t) = \sum_A \Omega_{dyn}(A, t)e^{-sA}\nonumber
             \end{equation}
 
         \item Markovian, paths biased (like canonical ensemble) by time extensive observable A (E) with strength s ($\beta$). $\mathbb{W} \rightarrow \mathbb{W}_A$ in
             \begin{equation}
-                \pdv{\vec{P}_A}{t} = \mathbb{W}_A(s) \vec{P}_A,
+                \pdv{\vec{P}_A}{t} = \mathbb{W}_A(s) \vec{P}_A,\nonumber
             \end{equation}
             leads to
             \begin{equation}
-                \mathcal{Z}_A(s, t) \sim e^{t \psi_A(s)}
+                \mathcal{Z}_A(s, t) \sim e^{t \psi_A(s)}\nonumber
             \end{equation}
             with $\psi_A(s)$ largest eigenvalue of $\mathbb{W}_A(s)$: \emph{dynamical free energy}.
-    \item Singularities in dynamical free energy $\rightarrow$ \emph{dynamical phase transitions}: different dynamical behaviour i.e. transition to chaos, jamming in glasses.
-    \item Dynamical phase transitions in \emph{kinetically constrained models} (KCMS) of glass formers (fig.~\ref{fig:KCM})
+    \item Singularities in dynamical free energy $\rightarrow$ \emph{dynamical phase transitions}: different dynamical behaviour i.e.\ transition to chaos, jamming in glasses
+    \item Dynamical phase transitions studied in \emph{kinetically constrained models} (KCMS) of glass formers (fig.~\ref{fig:KCM})
 \end{itemize}
     \includegraphics[width=\linewidth]{kcm}
     \captionof{figure}{Schematic of site of Kinetically Constrained Model. Site $i$ (blue) transitions from $n_i \rightarrow 1-n_i$ with rate $W(n_i \rightarrow 1-n_i) = C(\{n_j\}) \frac{e^{\beta(n_i-1)}}{1+e^{-\beta}}$, where $C(\{n_j\})$ is a function only of the values of sites $n_j$ (red)} \label{fig:KCM}
@@ -221,11 +231,11 @@
 \begin{Section2}{II: Aims}
     \begin{itemize}
         \item Classical glasses $\rightarrow$ KCMs\\
-        $\rightarrow$ \emph{biased trajectory ensembles}\cite{Garrahan2007}.
-        \item Keldysh theory $\rightarrow$ dissipation: \\
-            analogous to bias in trajectory ensembles?
-        \item Transition from usable quantum resources \\
-            (i.e.\ entanglement) to absence.
+        $\rightarrow$ \emph{biased trajectory ensembles}\cite{Garrahan2007}
+        \item Keldysh theory $\rightarrow$ dissipation \\
+            $\rightarrow$ analogy to bias in trajectory ensembles
+        \item Transition from quantum resources to \\
+            absence as \emph{dynamical phase transition}
     \end{itemize}
             \vspace{-11cm}\flushright\includegraphics[width=0.5\linewidth]{dyn_phase_transition}\flushleft
             \vspace{-1cm}
@@ -237,7 +247,13 @@
 \begin{Section}{2: Matrix Product States}
 
 \begin{itemize}
-    \item Interesting bit of most Hilbert spaces small, permits efficient numerics.
+    \itemsep1cm
+    \item Interesting bit of most Hilbert spaces small, permits efficient numerics
+\end{itemize}
+\vspace{0.5cm}
+\includegraphics[width=\linewidth]{D}
+\begin{itemize}
+    \itemsep1cm
     \item Many-body quantum state 
 \begin{equation}
     \ket{\psi} = \sum_{\sigma_1, \ldots, \sigma_L} C_{\sigma_1, \ldots, \sigma_L} \ket{\sigma_1, \ldots, \sigma_L}, \nonumber
@@ -245,17 +261,21 @@
 \item MPS decomposition ($\Lambda$ diagonal)
     \begin{equation} \ket{\psi} = \sum_{\sigma_1, \ldots, \sigma_L} \Gamma^{\sigma_1}\Lambda_1 \ldots \Lambda_{L-1}\Gamma^{\sigma_L} \ket{\sigma_1, \ldots, \sigma_L }\nonumber
     \end{equation}
-\item Important bit of Hilbert space spanned by MPS with $\Lambda$ truncated to D dims.
-\end{itemize}
-\includegraphics[width=\linewidth]{D}
-\captionof{figure}{Size of subset of Hilbert space $H$ with bond dimension $D$ grows with $D$}
-\begin{itemize}
+    \item Important bit of Hilbert space spanned by MPS with $\Lambda$ truncated to D dims
     \item D grows with time evolution. Project back to D subspace - classical EOM
 \end{itemize}
 \includegraphics[width=\linewidth]{tdvp}
-\captionof{figure}{Time-dependent variational principle}
+\captionof{figure}{Time-dependent variational principle~\cite{Haegeman2011}}
 \end{Section}
 
+\begin{Section5}
+\begin{minipage}{1\linewidth}
+    \vspace{0.2cm}
+    \centering
+    \includegraphics[width=1.15\linewidth]{mps}
+ \captionof{figure}{5-site Open Boundary Condition MPS}
+\end{minipage}
+\end{Section5}
 \columnbreak
 
 %%%Column 3
@@ -265,43 +285,48 @@
 \begin{Section}{3: Non-Equilibrium QFT: Keldysh}
 
         \includegraphics[width=\linewidth]{spins1}
-        \captionof{figure}{Different dynamical behaviour}
+        \captionof{figure}{Different dynamical behaviour~\cite{Crowley2016}}
+        \vspace{0.15cm}
 
 \begin{itemize}
+    \itemsep1cm
     \item Evolve the state forward in time $(-\infty \rightarrow \infty)$, rewind $\infty \rightarrow -\infty$: fig.~\ref{fig:keldysh}
     \item Separate fields on forward and backwards contours ($\phi^+, \phi^-$)
-    \item Construct the path integral $\rightarrow$ redundancy in the Green's Functions.
+    \item Constructing the path integral $\rightarrow$ redundancy in the Green's Functions.
     \item Combinations such that $\ev{\phi^{cl}\phi^{cl}}$ = 0
         \begin{equation}
-            \phi^q = \phi^+ - \phi^- \qquad \phi^{cl} = \phi^+-\phi^-
+            \phi^q = \phi^+ - \phi^- \qquad \phi^{cl} = \phi^+-\phi^- \nonumber
         \end{equation}
-    \item Introduce a bath interacting with system, integrate out bath, generate semi-classical path integrals for quantum systems.  
+    \item Introduce a bath interacting with system, integrate out bath, generate semi-classical path integrals for quantum systems  
+    \item Classical average over delta function $\rightarrow$ MSRJD formalism
+        \begin{equation}
+            \ev{\delta\left(\dot{x}(t) - f(x) - \xi(t)\right)} \nonumber
+        \end{equation}
     \item Distribution over paths. Connected to the classical trajectory ensemble?
 \end{itemize}
 
-\includegraphics[width=\linewidth, height=8cm]{keldysh}
-        \captionof{figure}{Keldysh Contour}\label{fig:keldysh}
 
 \end{Section}
+\begin{Section5}
+\begin{minipage}{1\linewidth}
+    \vspace{0.2cm}
+    \centering
+    \includegraphics[width=1.03\linewidth]{keldysh}
+        \captionof{figure}{Keldysh Contour}\label{fig:keldysh}
+\end{minipage}
+\end{Section5}
 %\bibliographystyle{plain}
 %\bibliography{halobib}
 
 \end{multicols}
 %%%Closing
 
-\vspace{-12.5cm}
+\vspace{-5.5cm}
     \flushright
-\begin{Section5}
-\begin{minipage}{1\linewidth}
-    \vspace{0.2cm}
-    \centering
-    \includegraphics[width=1.16\linewidth]{mps}
- \captionof{figure}{5-site Open Boundary Condition MPS in $\Gamma\Lambda$ notation}
-\end{minipage}
-\end{Section5}
+
 \vfill
 \flushleft
     \bibliography{ref}{}
     \bibliographystyle{abbrv}
-\vspace{3cm}
+    \vspace{2.5cm}
 \end{document}

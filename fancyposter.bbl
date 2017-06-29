@@ -12,4 +12,10 @@ J.~P.~G. et~al.
 \newblock {\em Journal of Physics A: Mathematical and Theoretical},
   42(7):075007, 2009.
 
+\bibitem{Haegeman2011}
+J.~Haegeman, J.~I. Cirac, T.~J. Osborne, I.~Pi\ifmmode~\check{z}\else
+  \v{z}\fi{}orn, H.~Verschelde, and F.~Verstraete.
+\newblock Time-dependent variational principle for quantum lattices.
+\newblock {\em Phys. Rev. Lett.}, 107:070601, Aug 2011.
+
 \end{thebibliography}
